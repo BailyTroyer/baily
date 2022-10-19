@@ -17,7 +17,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "composite": true
   },
   "include": ["src", "next-env.d.ts"],
   "exclude": ["node_modules"]
