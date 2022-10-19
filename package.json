@@ -12,11 +12,12 @@
     "lint": "turbo run lint",
     "test": "turbo run test -- --coverage",
     "test:e2e": "turbo run test:e2e",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --plugin-search-dir=. --write \"**/*.{ts,tsx,md,astro}\""
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
     "prettier": "latest",
+    "prettier-plugin-astro": "^0.6.0",
     "turbo": "latest"
   },
   "engines": {

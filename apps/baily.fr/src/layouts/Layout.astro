@@ -1,0 +1,21 @@
+---
+import i18next, { t } from "i18next";
+import { HeadHrefLangs, LanguageSelector } from "astro-i18next/components";
+import Head from "../components/Head.astro";
+---
+
+<!DOCTYPE html>
+<html lang={i18next.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <Head />
+    <HeadHrefLangs />
+    <title>{t("i18nextTitle")}</title>
+  </head>
+  <body>
+    <slot />
+    <LanguageSelector />
+  </body>
+</html>
