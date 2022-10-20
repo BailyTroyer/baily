@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --port 3001",
     "build": "astro build",
-    "start": "astro start",
-    "astro": "astro"
+    "start": "astro start --port 3001",
+    "astro": "astro",
+    "lint": "eslint"
   },
   "dependencies": {
     "@astrojs/sitemap": "^1.0.0",
@@ -15,5 +16,10 @@
     "astro-seo": "^0.6.0",
     "i18next": "^21.10.0",
     "i18next-fs-backend": "^1.1.5"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "eslint-plugin-astro": "^0.20.0"
   }
 }
