@@ -1,0 +1,82 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<header>
+  <nav
+    style={{
+      borderBottom: "1px solid #e1e1e1",
+    }}
+  >
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        margin: "0 auto",
+        maxWidth: "100ch",
+      }}
+    >
+      <ul
+        style={{
+          padding: 0,
+          display: "flex",
+          flexDirection: "row",
+          gap: "10px",
+        }}
+      >
+        {
+          [
+            { label: "home", href: "/" },
+            { label: "about", href: "/about" },
+          ].map(({ label, href, ...props }) => (
+            <li style={{ listStyle: "none" }}>
+              <HeaderLink href={href} {...props}>
+                {label.toUpperCase()}
+              </HeaderLink>
+            </li>
+          ))
+        }
+      </ul>
+      <ul
+        style={{
+          padding: 0,
+          display: "flex",
+          flexDirection: "row",
+          gap: "10px",
+        }}
+      >
+        {
+          [
+            {
+              label: "email",
+              href: "mailto:no-reply@baily.io",
+              target: "_blank",
+            },
+            {
+              label: "github",
+              href: "https://github.com/BailyTroyer",
+              target: "_blank",
+            },
+            { label: "rss", href: "/rss.xml" },
+          ].map(({ label, href, ...props }) => (
+            <li style={{ listStyle: "none" }}>
+              <HeaderLink href={href} {...props}>
+                {label.toUpperCase()}
+              </HeaderLink>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </nav>
+</header>
+<style>
+  header {
+    margin: 0em 0 2em;
+  }
+  h2 {
+    margin: 0.5em 0;
+  }
+</style>

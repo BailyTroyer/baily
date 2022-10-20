@@ -1,0 +1,108 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<header
+  style={{
+    width: "100%",
+    borderBottom: "1px solid #e1e1e1",
+  }}
+>
+  <div
+    style={{
+      padding: "0 2em",
+      paddingTop: "4em",
+      display: "flex",
+      flexDirection: "column",
+      margin: "0 auto",
+      maxWidth: "100ch",
+    }}
+  >
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        paddingBottom: "2em",
+      }}
+    >
+      <img
+        width={150}
+        height={150}
+        src="/memoji.jpg"
+        alt="Baily's memoji"
+        style={{ marginBottom: "1em" }}
+      />
+      <h1 style={{ padding: 0, margin: 0 }}>Baily's Blog</h1>
+      <h2
+        style={{
+          padding: "5px 0",
+          margin: 0,
+          fontWeight: 300,
+        }}
+      >
+        Of semi-random rants
+      </h2>
+    </div>
+    <nav
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <ul
+        style={{
+          padding: 0,
+          display: "flex",
+          flexDirection: "row",
+          gap: "10px",
+        }}
+      >
+        {
+          [
+            { label: "baily.io", href: "https://baily.io" },
+            { label: "about", href: "/about", target: "_blank" },
+          ].map(({ label, href, ...props }) => (
+            <li style={{ listStyle: "none" }}>
+              <HeaderLink href={href} {...props}>
+                {label.toUpperCase()}
+              </HeaderLink>
+            </li>
+          ))
+        }
+      </ul>
+      <ul
+        style={{
+          padding: 0,
+          display: "flex",
+          flexDirection: "row",
+          gap: "10px",
+        }}
+      >
+        {
+          [
+            {
+              label: "email",
+              href: "mailto:no-reply@baily.io",
+              target: "_blank",
+            },
+            {
+              label: "github",
+              href: "https://github.com/BailyTroyer",
+              target: "_blank",
+            },
+            { label: "rss", href: "/rss.xml" },
+          ].map(({ label, href, ...props }) => (
+            <li style={{ listStyle: "none" }}>
+              <HeaderLink href={href} {...props}>
+                {label.toUpperCase()}
+              </HeaderLink>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

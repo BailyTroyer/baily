@@ -1,6 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
+import Header from "../components/PostHeader.astro";
 import Footer from "../components/Footer.astro";
 
 export interface Props {
@@ -35,9 +35,18 @@ const {
 
   <body>
     <Header />
-    <main>
+    <main
+      style={{
+        maxWidth: "100ch",
+        margin: "0 auto",
+      }}
+    >
       <article>
-        {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+        {
+          heroImage && (
+            <img src={heroImage} alt="" style={{ objectFit: "cover" }} />
+          )
+        }
         <h1 class="title">{title}</h1>
         {pubDate && <time>{pubDate}</time>}
         {
