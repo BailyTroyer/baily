@@ -1,5 +1,3 @@
-import { PropsWithChildren } from "react";
-
 import {
   CloseIcon,
   HamburgerIcon,
@@ -18,26 +16,41 @@ import {
   Container,
 } from "ui";
 
-const Links = ["Blog"];
-
-const NavLink = ({ children, href }: PropsWithChildren<{ href: string }>) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={`/${href}`}
-  >
-    {children}
-  </Link>
-);
+const Links = [
+  {
+    label: "Blog",
+    href: "http://localhost:3000",
+    target: "_blank",
+  },
+  {
+    label: "Fr",
+    href: "http://localhost:3001",
+    target: "_blank",
+  },
+];
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const linkBg = useColorModeValue("gray.200", "gray.700");
+
+  const links = () =>
+    Links.map(({ label, ...props }, index) => (
+      <Link
+        _hover={{
+          textDecoration: "none",
+          bg: linkBg,
+        }}
+        rounded="md"
+        px={2}
+        py={1}
+        key={index}
+        {...props}
+      >
+        {label}
+      </Link>
+    ));
 
   return (
     <Box
@@ -58,17 +71,15 @@ export default function Nav() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box fontWeight={600}>Baily.io</Box>
+            <Link href="/">
+              <Box fontWeight={600}>Baily.io</Box>
+            </Link>
             <HStack
               as={"nav"}
               spacing={4}
               display={{ base: "none", md: "flex" }}
             >
-              {Links.map((link) => (
-                <NavLink key={link} href={link.toLowerCase()}>
-                  {link}
-                </NavLink>
-              ))}
+              {links()}
             </HStack>
           </HStack>
 
@@ -83,14 +94,8 @@ export default function Nav() {
       </Container>
 
       {isOpen ? (
-        <Box pb={4} display={{ md: "none" }}>
-          <Stack as={"nav"} spacing={4}>
-            {Links.map((link) => (
-              <NavLink key={link} href={link.toLowerCase()}>
-                {link}
-              </NavLink>
-            ))}
-          </Stack>
+        <Box px={4} pb={4} display={{ md: "none" }}>
+          <Stack as={"nav"}>{links()}</Stack>
         </Box>
       ) : null}
     </Box>

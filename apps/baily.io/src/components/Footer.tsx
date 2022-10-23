@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Link, useColorModeValue } from "ui";
+import { Box, Container, Stack, Link, useColorModeValue, Text } from "ui";
 
 export default function Footer() {
   return (
@@ -16,11 +16,10 @@ export default function Footer() {
           justify="space-between"
           align={{ base: "center", md: "center" }}
         >
-          <Stack direction={"row"} spacing={6}>
-            <Link href="/">About</Link>
-            <Link href="/contact">Contact</Link>
+          <Stack direction="row" spacing={6}>
+            <Link href="/websites">baily.* sites</Link>
           </Stack>
-          <Link href="/rss">RSS feed</Link>
+          <Text>&copy; 2022 baily. All rights reserved.</Text>
         </Container>
       </Box>
     </footer>

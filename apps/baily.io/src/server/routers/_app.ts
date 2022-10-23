@@ -17,7 +17,6 @@ export const serverRouter = createRouter()
       },
     };
   })
-  // https://trpc.io/docs/v9/merging-routers
   .merge("metadata.", metadataRouter);
 
 export type ServerRouter = typeof serverRouter;

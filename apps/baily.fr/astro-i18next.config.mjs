@@ -1,9 +1,9 @@
 /** @type {import('astro-i18next').AstroI18nextConfig} */
-export default {
+const config = {
   defaultLanguage: "fr",
   supportedLanguages: ["fr", "en"],
   i18next: {
-    debug: true,
+    debug: false,
     initImmediate: false,
     backend: {
       loadPath: "./src/locales/{{lng}}.json",
@@ -11,3 +11,5 @@ export default {
   },
   i18nextPlugins: { fsBackend: "i18next-fs-backend" },
 };
+
+export default config;
