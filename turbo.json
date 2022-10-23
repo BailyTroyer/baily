@@ -1,6 +1,9 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
+    "generate": {
+      "dependsOn": ["^generate"]
+    },
     "build": {
       "dependsOn": ["^build", "generate"],
       "outputs": ["dist/**", ".next/**"]
@@ -21,5 +24,11 @@
     }
   },
   "globalDependencies": [],
-  "globalEnv": ["NODE_ENV", "NEXT_PUBLIC_VERCEL_URL", "CI"]
+  "globalEnv": [
+    "NODE_ENV",
+    "NEXT_PUBLIC_VERCEL_URL",
+    "CI",
+    "SLACK_SIGNING_SECRET",
+    "SLACK_BOT_TOKEN"
+  ]
 }

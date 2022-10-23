@@ -7,12 +7,14 @@
     "packages/*"
   ],
   "scripts": {
+    "postinstall": "pnpm run generate",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test -- --coverage",
     "test:e2e": "turbo run test:e2e",
-    "format": "prettier --plugin-search-dir=. --write \"**/*.{ts,tsx,md,astro}\""
+    "format": "prettier --plugin-search-dir=. --write \"**/*.{ts,tsx,md,astro}\"",
+    "generate": "turbo run generate"
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
